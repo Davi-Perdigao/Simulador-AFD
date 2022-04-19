@@ -1,8 +1,8 @@
 # Simulador de AFD
 
 <i>Características{<br/>
-                *Escrito na linguagem Python<br/>
-                *Autores: Davi Perdigão e Edmilson Lino<br/>
+                 Escrito na linguagem Python<br/>
+                 Autores: Davi Perdigão e Edmilson Lino<br/>
                 }<br/>
 </i>
 
