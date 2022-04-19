@@ -7,7 +7,7 @@
 
 Esse programa registra um Autômato Finito Determinístico através de um arquivo.txt e testa se uma palavra, informado pelo usuário, é aceita pelo AFD registrado.
 
-O arquivo.txt que descreverá o AFD terá a seguinte forma geral descrita abaixo. Na primeira linha serão apresentados os componentes do AFD, conforme abaixo:<br/>
+O arquivo.txt que descreverá o AFD terá a seguinte forma geral descrita abaixo. Na primeira linha serão apresentados os componentes do AFD, conforme abaixo:
 (∑︀, Q, 𝛿, q0, F)<br/>
 ∑︀ = Alfabeto do AFD<br/>
 Q = Estados do AFD<br/>
