@@ -1,8 +1,8 @@
 # Simulador de AFD
 
 Características{
-*Escrito na linguagem Python
-*Autores: Davi Perdigão e Edmilson Lino
+*Escrito na linguagem Python.
+*Autores: Davi Perdigão e Edmilson Lino.
 }
 
 Esse programa registra um Autômato Finito Determinístico através de um arquivo.txt e testa se uma palavra, informado pelo usuário, é aceita pelo AFD registrado.
