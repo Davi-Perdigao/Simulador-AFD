@@ -15,4 +15,5 @@ Q = Estados do AFD<br/>
 𝛿 = Regras de transição do AFD<br/>
 q0 = Estado inicial do AFD<br/>
 F = Estado(s) final(is) do AFD<br/>
+Teste
 <br/>
