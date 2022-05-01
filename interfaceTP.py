@@ -1,3 +1,4 @@
+from tkinter import*
 import re
 from numpy import append
 
@@ -15,18 +16,13 @@ def gerarAutomato(nomeArquivo):
         return automato
     except:
         return 'ERRO'
-"""
-#Lendo e retornando a primeira linha do automato 
-def lerPrimeiraLinha(automato):
-    primeiraLinha = re.split(" ", automato[0])
-    return primeiraLinha
-"""
-# Recebendo o AFD, separando seus estados e retornando-os
+
+#Recebendo o AFD, separando seus estados e retornando-os
 def separarEstados(automato):
     estados = re.split(" ", automato[1]) # Os estados estão na posição 1 da lista
     return estados
 
-# Recebendo o automato e separando seu alfabeto
+#Recebendo o AFD e separando seu alfabeto
 def separarAlfabeto(automato):
     alfabeto = re.split(" ", automato[2]) # O alfabeto está na posicao 2 da lista
     alfabeto = set(alfabeto)
@@ -34,7 +30,7 @@ def separarAlfabeto(automato):
 
 # Recebendo o AFD e separando seu estado inicial
 def separarEstadoInicial(automato):
-    estadoInicial = automato[3] # O estado inicial está na a posicao 3 da lista
+    estadoInicial = automato[3] ## O estado inicial está na posicao  3 da lista
     return estadoInicial
 
 # Recebendo o AFD e separando seus estados finais
@@ -42,9 +38,9 @@ def separarEstadosFinais(automato):
     estadoFinal = re.split(" ", automato[4]) # Os estados finais estão a posicao 4 da lista
     return estadoFinal
 
-# Recebendo o AFD e separando suas transições
+# Recebendo o automato e separando suas transições
 def lerRegrasDeTransicao(automato):
-	transicoes = {}
+	transicoes = {} #Criando o dicionário 
 	# Percorrendo as informações do AFD a partir da linha 5
 	for i in range(5, len(automato)):
 		items = automato[i].split(" ") # Lendo a linha do arquivo e adiconando a lista
@@ -66,38 +62,65 @@ def verificarPalavra(alfabeto, estadoInicial, estadosFinais, transicoes, palavra
         else:
             return -1
     # Verificando se o estadoAtual existe na lista de estados finais
-    # Caso exista, o AFD reconhece a palavra  
+    # Caso exista, o AFD reconhece a palavra 
     if estadoAtual in estadosFinais:
         validacao = True
+
     return validacao
 
-def mostrarResultado(resultadoValidacao, palavra):
-    print()
+def mostrarResultado(validacao, palavra):
     # Se o AFD reconheceu a palavra
-    if resultadoValidacao == True:
-        print("O automato reconhece a palavra " + palavra)
+    if validacao == True:
+        mensagem = "O AFD reconhece a palavra " + palavra
     # Se o AFD não reconheceu a palavra
-    elif resultadoValidacao == False:
-        print("O automato não reconhece a palavra " + palavra)
+    elif validacao == False:
+        mensagem = "O AFD não reconhece a palavra " + palavra    
     # Se houve um erro na verificação da palavra
-    else: 
-        print("ERRO")
-        print("Uma letra da palavra não existe no alfabeto")
+    else:
+        mensagem = "ERRO"
+    
+    # Atribuindo ao label a mensagem a ser exibida
+    txt_info["text"] = str(mensagem)
 
-def main():
-    nomeArquivo = input("Informe o nome do arquivo: ")
-    automato = gerarAutomato(nomeArquivo)
-    if automato!='ERRO':
-        #primeiraLinha= lerPrimeiraLinha(automato)
-        #estados = separarEstados(automato)
+def principal():
+    automato = gerarAutomato(input_NomeArquivo.get())
+    if automato != 'ERRO':
         alfabeto = separarAlfabeto(automato)
         estadoInicial = separarEstadoInicial(automato)
         estadosFinais = separarEstadosFinais(automato)
         transicoes = lerRegrasDeTransicao(automato)
-        palavra = input("Informe a palavra: ")
-        resultadoValidacao =  verificarPalavra(alfabeto, estadoInicial, estadosFinais, transicoes, palavra)
-        mostrarResultado(resultadoValidacao, palavra)
+        palavra = input_Palavra.get()
+        validacao =  verificarPalavra(alfabeto, estadoInicial, estadosFinais, transicoes, palavra)
+        mostrarResultado(validacao, palavra)
     else:
-        print("Por favor, informe um arquivo válido")
-    
-main()
+        txt_info["text"] = "Informe um arquivo válido"
+
+janela = Tk() # Criando a janela principal
+
+janela.title("Maquina de Automatos") # Definindo o titulo da janela
+
+# Criando o label de texto e atribuindo a ele uma posição na janela
+txt_inputArquivo = Label(janela, text="Informe o nome do arquivo: ")
+txt_inputArquivo.grid(column=0, row=0, padx=10, pady=10)
+
+# Criando um entry pra receber o nome do arquivo e atribuindo a ele uma posição na janela
+input_NomeArquivo = Entry(janela)
+input_NomeArquivo.grid(column=1, row=0, padx=10, pady=10)
+
+# Criando o label de texto da palavra e atribuindo a ele uma posição na janela
+txt_inputPalavra = Label(janela, text="Informe a palavra: ")
+txt_inputPalavra.grid(column=0, row=1, padx=10, pady=10 )
+
+# Criando um entry pra receber a palavra e atribuindo a ele uma posição na janela
+input_Palavra = Entry(janela)
+input_Palavra.grid(column=1, row=1, padx=10, pady=10)
+
+# Criando um botão para mostrar o resultado e atribuindo a ele uma posicao na janela
+btn_MostraInfo = Button(janela, text="Mostrar", command=principal)
+btn_MostraInfo.grid(column=0, row=3, padx=10, pady=10)
+
+# # Criando um label de texto para mostrar as informações e atribuindo a ele uma posicao na janela
+txt_info = Label(janela, text="")
+txt_info.grid(column=0, row=4, padx=10, pady=10)
+
+janela.mainloop()
