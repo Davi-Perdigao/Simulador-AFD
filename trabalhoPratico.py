@@ -15,12 +15,14 @@ def gerarAutomato(nomeArquivo):
         return automato
     except:
         return 'ERRO'
+    
 """
 #Lendo e retornando a primeira linha do automato 
 def lerPrimeiraLinha(automato):
     primeiraLinha = re.split(" ", automato[0])
     return primeiraLinha
 """
+
 # Recebendo o AFD, separando seus estados e retornando-os
 def separarEstados(automato):
     estados = re.split(" ", automato[1]) # Os estados estão na posição 1 da lista
