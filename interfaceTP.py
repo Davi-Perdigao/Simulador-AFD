@@ -119,7 +119,7 @@ input_Palavra.grid(column=1, row=1, padx=10, pady=10)
 btn_MostraInfo = Button(janela, text="Mostrar", command=principal)
 btn_MostraInfo.grid(column=0, row=3, padx=10, pady=10)
 
-# # Criando um label de texto para mostrar as informações e atribuindo a ele uma posicao na janela
+# Criando um label de texto para mostrar as informações e atribuindo a ele uma posicao na janela
 txt_info = Label(janela, text="")
 txt_info.grid(column=0, row=4, padx=10, pady=10)
 
