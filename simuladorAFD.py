@@ -93,11 +93,11 @@ def principal():
         validacao =  verificarPalavra(alfabeto, estadoInicial, estadosFinais, transicoes, palavra)
         mostrarResultado(validacao, palavra)
     else:
-        txt_info["text"] = "Informe um arquivo válido"
+        txt_info["text"] = "Informe um arquivo válido!"
 
 janela = Tk() # Criando a janela principal
 
-janela.title("Maquina de Automatos") # Definindo o titulo da janela
+janela.title("Máquina de Autômatos") # Definindo o titulo da janela
 
 # Criando o label de texto e atribuindo a ele uma posição na janela
 txt_inputArquivo = Label(janela, text="Informe o nome do arquivo: ")
@@ -116,7 +116,7 @@ input_Palavra = Entry(janela)
 input_Palavra.grid(column=1, row=1, padx=10, pady=10)
 
 # Criando um botão para mostrar o resultado e atribuindo a ele uma posicao na janela
-btn_MostraInfo = Button(janela, text="Mostrar", command=principal)
+btn_MostraInfo = Button(janela, text="Buscar", command=principal)
 btn_MostraInfo.grid(column=0, row=3, padx=10, pady=10)
 
 # Criando um label de texto para mostrar as informações e atribuindo a ele uma posicao na janela
