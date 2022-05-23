@@ -43,7 +43,7 @@ def lerRegrasDeTransicao(automato):
 	transicoes = {} #Criando o dicionário 
 	# Percorrendo as informações do AFD a partir da linha 5
 	for i in range(5, len(automato)):
-		items = automato[i].split(" ") # Lendo a linha do arquivo e adiconando a lista
+		items = automato[i].split(" ") # Lendo a linha do arquivo e adicionando a lista
 		index = items[0] + " " + items[2] # Definindo a chave para o dicionário
 		transicoes[index] = items[1] # Adicionando as informações ao dicionário
 	return transicoes
