@@ -30,7 +30,7 @@ def separarAlfabeto(automato):
 
 # Recebendo o AFD e separando seu estado inicial
 def separarEstadoInicial(automato):
-    estadoInicial = automato[3] ## O estado inicial está na posicao  3 da lista
+    estadoInicial = automato[3] ## O estado inicial está na posicao 3 da lista
     return estadoInicial
 
 # Recebendo o AFD e separando seus estados finais
